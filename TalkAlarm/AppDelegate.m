@@ -16,7 +16,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    UILocalNotification *locationNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    if (locationNotification) {
+        application.applicationIconBadgeNumber = 0;
+    }
+
     return YES;
 }
 
@@ -42,6 +46,11 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
+}
+
+-(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification{
+//    MathSnoozeViewController *mathVC = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"MathSnooze"];
+//    [self.window setRootViewController:mathVC];
 }
 
 #pragma mark - Core Data stack
@@ -108,6 +117,7 @@
     [_managedObjectContext setPersistentStoreCoordinator:coordinator];
     return _managedObjectContext;
 }
+
 
 #pragma mark - Core Data Saving support
 
