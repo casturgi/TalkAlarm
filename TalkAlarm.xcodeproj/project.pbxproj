@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E0017371C92047400DD59CA /* SnoozeButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E0017361C92047300DD59CA /* SnoozeButton.xib */; };
+		4E00173A1C9204DC00DD59CA /* SnoozeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0017391C9204DC00DD59CA /* SnoozeButton.m */; };
+		4E00173D1C9208FA00DD59CA /* MathSnooze.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E00173C1C9208FA00DD59CA /* MathSnooze.m */; };
+		4E00173F1C92090D00DD59CA /* MathSnooze.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E00173E1C92090D00DD59CA /* MathSnooze.xib */; };
+		4E23806D1C90DD3A00A81226 /* SnoozeRoutingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E23806C1C90DD3A00A81226 /* SnoozeRoutingViewController.m */; };
 		4E3567241C6998DD00050921 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E3567231C6998DD00050921 /* main.m */; };
 		4E3567271C6998DD00050921 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E3567261C6998DD00050921 /* AppDelegate.m */; };
 		4E35672D1C6998DD00050921 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E35672B1C6998DD00050921 /* Main.storyboard */; };
@@ -14,20 +19,47 @@
 		4E3567321C6998DD00050921 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E3567311C6998DD00050921 /* Assets.xcassets */; };
 		4E3567351C6998DD00050921 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E3567331C6998DD00050921 /* LaunchScreen.storyboard */; };
 		4E3567421C699B0400050921 /* AddEditAlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E3567411C699B0400050921 /* AddEditAlarmViewController.m */; };
-		4E3567461C69A10200050921 /* DateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E3567451C69A10200050921 /* DateFormatter.m */; };
 		4E3567491C69A8D800050921 /* AlarmsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E3567481C69A8D800050921 /* AlarmsViewController.m */; };
-		4E35674C1C69C00500050921 /* SnoozeButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E35674B1C69C00500050921 /* SnoozeButtonViewController.m */; };
-		4E35674F1C69C09A00050921 /* VoiceRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E35674E1C69C09A00050921 /* VoiceRecordViewController.m */; };
 		4E3567521C69C0B600050921 /* ChooseRingtoneTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E3567511C69C0B600050921 /* ChooseRingtoneTableViewController.m */; };
-		4E3567551C69C0D800050921 /* MathSnoozeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E3567541C69C0D800050921 /* MathSnoozeViewController.m */; };
-		4E3567581C69CF9900050921 /* LocalNotificationConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E3567571C69CF9900050921 /* LocalNotificationConfig.m */; };
-		4E35675B1C69D33700050921 /* Alarm_tone.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4E35675A1C69D33700050921 /* Alarm_tone.wav */; };
 		4E35675D1C69E02800050921 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E35675C1C69E02800050921 /* CoreData.framework */; };
-		4E3567621C6C0C8400050921 /* Alarm+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E35675F1C6C0C8400050921 /* Alarm+CoreDataProperties.m */; };
-		4E3567631C6C0C8400050921 /* Alarm.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E3567611C6C0C8400050921 /* Alarm.m */; };
+		4EB769151CA5E09A000EAC60 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EB769141CA5E09A000EAC60 /* iAd.framework */; };
+		4EC145FD1C9F9126004E76D5 /* guitar_drone30.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4EC145EF1C9F9126004E76D5 /* guitar_drone30.wav */; };
+		4EC145FE1C9F9126004E76D5 /* elegant_ringtone30.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4EC145F01C9F9126004E76D5 /* elegant_ringtone30.wav */; };
+		4EC145FF1C9F9126004E76D5 /* soft_alarm30.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4EC145F11C9F9126004E76D5 /* soft_alarm30.wav */; };
+		4EC146001C9F9126004E76D5 /* submarine_alarm30.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4EC145F21C9F9126004E76D5 /* submarine_alarm30.wav */; };
+		4EC146011C9F9126004E76D5 /* Dubstep_alarm30.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4EC145F31C9F9126004E76D5 /* Dubstep_alarm30.wav */; };
+		4EC146021C9F9126004E76D5 /* russian_electro30.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4EC145F41C9F9126004E76D5 /* russian_electro30.wav */; };
+		4EC146031C9F9126004E76D5 /* best_wake_up_tone30.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4EC145F51C9F9126004E76D5 /* best_wake_up_tone30.wav */; };
+		4EC146051C9F9126004E76D5 /* analog_alarm30.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4EC145F71C9F9126004E76D5 /* analog_alarm30.wav */; };
+		4EC146061C9F9126004E76D5 /* nuclear_alarm30.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4EC145F81C9F9126004E76D5 /* nuclear_alarm30.wav */; };
+		4EC146071C9F9126004E76D5 /* xperia_z_alarm30.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4EC145F91C9F9126004E76D5 /* xperia_z_alarm30.wav */; };
+		4EC146081C9F9126004E76D5 /* matrix_alarm30.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4EC145FA1C9F9126004E76D5 /* matrix_alarm30.wav */; };
+		4EC146091C9F9126004E76D5 /* alarm_drum30.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4EC145FB1C9F9126004E76D5 /* alarm_drum30.wav */; };
+		4EC1460A1C9F9126004E76D5 /* wake_up30.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4EC145FC1C9F9126004E76D5 /* wake_up30.wav */; };
+		4EC1460C1C9F9616004E76D5 /* rooster_alarm30.1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4EC1460B1C9F9616004E76D5 /* rooster_alarm30.1.wav */; };
+		4EDBDF411C80044D00527AFE /* Alarm+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDBDF361C80044D00527AFE /* Alarm+CoreDataProperties.m */; };
+		4EDBDF421C80044D00527AFE /* Alarm.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDBDF381C80044D00527AFE /* Alarm.m */; };
+		4EDBDF431C80044D00527AFE /* Recording+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDBDF3A1C80044D00527AFE /* Recording+CoreDataProperties.m */; };
+		4EDBDF441C80044D00527AFE /* Recording.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDBDF3C1C80044D00527AFE /* Recording.m */; };
+		4EDBDF451C80044D00527AFE /* Ringtone+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDBDF3E1C80044D00527AFE /* Ringtone+CoreDataProperties.m */; };
+		4EDBDF461C80044D00527AFE /* Ringtone.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDBDF401C80044D00527AFE /* Ringtone.m */; };
+		4EE1849C1C8107880087EE15 /* RingtoneHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE1849B1C8107880087EE15 /* RingtoneHelper.m */; };
+		4EE4939E1C84EAA100E8E31C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EE4939D1C84EAA100E8E31C /* AVFoundation.framework */; };
+		4EEA9DF21C7E57BB00054C00 /* RecordingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEA9DEF1C7E57BB00054C00 /* RecordingsViewController.m */; };
+		4EEA9DF31C7E57BB00054C00 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEA9DF11C7E57BB00054C00 /* ViewController.m */; };
+		94513F564292C0BE1468C1E8 /* libPods-TalkAlarm.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D1CF44E9AEBDBD83EA7999B /* libPods-TalkAlarm.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D1CF44E9AEBDBD83EA7999B /* libPods-TalkAlarm.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TalkAlarm.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E0017361C92047300DD59CA /* SnoozeButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SnoozeButton.xib; sourceTree = "<group>"; };
+		4E0017381C9204DC00DD59CA /* SnoozeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnoozeButton.h; sourceTree = "<group>"; };
+		4E0017391C9204DC00DD59CA /* SnoozeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnoozeButton.m; sourceTree = "<group>"; };
+		4E00173B1C9208FA00DD59CA /* MathSnooze.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathSnooze.h; sourceTree = "<group>"; };
+		4E00173C1C9208FA00DD59CA /* MathSnooze.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MathSnooze.m; sourceTree = "<group>"; };
+		4E00173E1C92090D00DD59CA /* MathSnooze.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MathSnooze.xib; sourceTree = "<group>"; };
+		4E23806B1C90DD3A00A81226 /* SnoozeRoutingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnoozeRoutingViewController.h; sourceTree = "<group>"; };
+		4E23806C1C90DD3A00A81226 /* SnoozeRoutingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnoozeRoutingViewController.m; sourceTree = "<group>"; };
 		4E35671F1C6998DD00050921 /* TalkAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TalkAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E3567231C6998DD00050921 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4E3567251C6998DD00050921 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -39,26 +71,47 @@
 		4E3567361C6998DD00050921 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E3567401C699B0400050921 /* AddEditAlarmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEditAlarmViewController.h; sourceTree = "<group>"; };
 		4E3567411C699B0400050921 /* AddEditAlarmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEditAlarmViewController.m; sourceTree = "<group>"; };
-		4E3567441C69A10200050921 /* DateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateFormatter.h; sourceTree = "<group>"; };
-		4E3567451C69A10200050921 /* DateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateFormatter.m; sourceTree = "<group>"; };
 		4E3567471C69A8D800050921 /* AlarmsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmsViewController.h; sourceTree = "<group>"; };
 		4E3567481C69A8D800050921 /* AlarmsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmsViewController.m; sourceTree = "<group>"; };
-		4E35674A1C69C00500050921 /* SnoozeButtonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnoozeButtonViewController.h; sourceTree = "<group>"; };
-		4E35674B1C69C00500050921 /* SnoozeButtonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnoozeButtonViewController.m; sourceTree = "<group>"; };
-		4E35674D1C69C09A00050921 /* VoiceRecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoiceRecordViewController.h; sourceTree = "<group>"; };
-		4E35674E1C69C09A00050921 /* VoiceRecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoiceRecordViewController.m; sourceTree = "<group>"; };
 		4E3567501C69C0B600050921 /* ChooseRingtoneTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseRingtoneTableViewController.h; sourceTree = "<group>"; };
 		4E3567511C69C0B600050921 /* ChooseRingtoneTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseRingtoneTableViewController.m; sourceTree = "<group>"; };
-		4E3567531C69C0D800050921 /* MathSnoozeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathSnoozeViewController.h; sourceTree = "<group>"; };
-		4E3567541C69C0D800050921 /* MathSnoozeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MathSnoozeViewController.m; sourceTree = "<group>"; };
-		4E3567561C69CF9900050921 /* LocalNotificationConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalNotificationConfig.h; sourceTree = "<group>"; };
-		4E3567571C69CF9900050921 /* LocalNotificationConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalNotificationConfig.m; sourceTree = "<group>"; };
-		4E35675A1C69D33700050921 /* Alarm_tone.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Alarm_tone.wav; path = "../../../Audio Samples/electro-house samples/FX/FX/Alarm_tone.wav"; sourceTree = "<group>"; };
 		4E35675C1C69E02800050921 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		4E35675E1C6C0C8400050921 /* Alarm+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Alarm+CoreDataProperties.h"; sourceTree = "<group>"; };
-		4E35675F1C6C0C8400050921 /* Alarm+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Alarm+CoreDataProperties.m"; sourceTree = "<group>"; };
-		4E3567601C6C0C8400050921 /* Alarm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alarm.h; sourceTree = "<group>"; };
-		4E3567611C6C0C8400050921 /* Alarm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Alarm.m; sourceTree = "<group>"; };
+		4EB769141CA5E09A000EAC60 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		4EC145EF1C9F9126004E76D5 /* guitar_drone30.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = guitar_drone30.wav; sourceTree = "<group>"; };
+		4EC145F01C9F9126004E76D5 /* elegant_ringtone30.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = elegant_ringtone30.wav; sourceTree = "<group>"; };
+		4EC145F11C9F9126004E76D5 /* soft_alarm30.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = soft_alarm30.wav; sourceTree = "<group>"; };
+		4EC145F21C9F9126004E76D5 /* submarine_alarm30.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = submarine_alarm30.wav; sourceTree = "<group>"; };
+		4EC145F31C9F9126004E76D5 /* Dubstep_alarm30.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Dubstep_alarm30.wav; sourceTree = "<group>"; };
+		4EC145F41C9F9126004E76D5 /* russian_electro30.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = russian_electro30.wav; sourceTree = "<group>"; };
+		4EC145F51C9F9126004E76D5 /* best_wake_up_tone30.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = best_wake_up_tone30.wav; sourceTree = "<group>"; };
+		4EC145F71C9F9126004E76D5 /* analog_alarm30.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = analog_alarm30.wav; sourceTree = "<group>"; };
+		4EC145F81C9F9126004E76D5 /* nuclear_alarm30.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = nuclear_alarm30.wav; sourceTree = "<group>"; };
+		4EC145F91C9F9126004E76D5 /* xperia_z_alarm30.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = xperia_z_alarm30.wav; sourceTree = "<group>"; };
+		4EC145FA1C9F9126004E76D5 /* matrix_alarm30.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = matrix_alarm30.wav; sourceTree = "<group>"; };
+		4EC145FB1C9F9126004E76D5 /* alarm_drum30.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = alarm_drum30.wav; sourceTree = "<group>"; };
+		4EC145FC1C9F9126004E76D5 /* wake_up30.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wake_up30.wav; sourceTree = "<group>"; };
+		4EC1460B1C9F9616004E76D5 /* rooster_alarm30.1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = rooster_alarm30.1.wav; sourceTree = "<group>"; };
+		4EDBDF351C80044D00527AFE /* Alarm+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Alarm+CoreDataProperties.h"; sourceTree = "<group>"; };
+		4EDBDF361C80044D00527AFE /* Alarm+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Alarm+CoreDataProperties.m"; sourceTree = "<group>"; };
+		4EDBDF371C80044D00527AFE /* Alarm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alarm.h; sourceTree = "<group>"; };
+		4EDBDF381C80044D00527AFE /* Alarm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Alarm.m; sourceTree = "<group>"; };
+		4EDBDF391C80044D00527AFE /* Recording+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Recording+CoreDataProperties.h"; sourceTree = "<group>"; };
+		4EDBDF3A1C80044D00527AFE /* Recording+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Recording+CoreDataProperties.m"; sourceTree = "<group>"; };
+		4EDBDF3B1C80044D00527AFE /* Recording.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recording.h; sourceTree = "<group>"; };
+		4EDBDF3C1C80044D00527AFE /* Recording.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recording.m; sourceTree = "<group>"; };
+		4EDBDF3D1C80044D00527AFE /* Ringtone+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Ringtone+CoreDataProperties.h"; sourceTree = "<group>"; };
+		4EDBDF3E1C80044D00527AFE /* Ringtone+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Ringtone+CoreDataProperties.m"; sourceTree = "<group>"; };
+		4EDBDF3F1C80044D00527AFE /* Ringtone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ringtone.h; sourceTree = "<group>"; };
+		4EDBDF401C80044D00527AFE /* Ringtone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ringtone.m; sourceTree = "<group>"; };
+		4EE1849A1C8107880087EE15 /* RingtoneHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RingtoneHelper.h; sourceTree = "<group>"; };
+		4EE1849B1C8107880087EE15 /* RingtoneHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RingtoneHelper.m; sourceTree = "<group>"; };
+		4EE4939D1C84EAA100E8E31C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		4EEA9DEE1C7E57BB00054C00 /* RecordingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordingsViewController.h; sourceTree = "<group>"; };
+		4EEA9DEF1C7E57BB00054C00 /* RecordingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordingsViewController.m; sourceTree = "<group>"; };
+		4EEA9DF01C7E57BB00054C00 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		4EEA9DF11C7E57BB00054C00 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		BFB22EDE2AD9805B5F1761EF /* Pods-TalkAlarm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TalkAlarm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TalkAlarm/Pods-TalkAlarm.debug.xcconfig"; sourceTree = "<group>"; };
+		C89132551EC29A8B1650CB90 /* Pods-TalkAlarm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TalkAlarm.release.xcconfig"; path = "Pods/Target Support Files/Pods-TalkAlarm/Pods-TalkAlarm.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,19 +119,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EB769151CA5E09A000EAC60 /* iAd.framework in Frameworks */,
+				4EE4939E1C84EAA100E8E31C /* AVFoundation.framework in Frameworks */,
 				4E35675D1C69E02800050921 /* CoreData.framework in Frameworks */,
+				94513F564292C0BE1468C1E8 /* libPods-TalkAlarm.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16B1FDDE942E6807E21D86D5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BFB22EDE2AD9805B5F1761EF /* Pods-TalkAlarm.debug.xcconfig */,
+				C89132551EC29A8B1650CB90 /* Pods-TalkAlarm.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		4E3567161C6998DD00050921 = {
 			isa = PBXGroup;
 			children = (
 				4E35675C1C69E02800050921 /* CoreData.framework */,
 				4E3567211C6998DD00050921 /* TalkAlarm */,
 				4E3567201C6998DD00050921 /* Products */,
+				16B1FDDE942E6807E21D86D5 /* Pods */,
+				9F7FDE392627A01D72E6F121 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,6 +163,8 @@
 				4E3567251C6998DD00050921 /* AppDelegate.h */,
 				4E3567261C6998DD00050921 /* AppDelegate.m */,
 				4E35672B1C6998DD00050921 /* Main.storyboard */,
+				4E0017361C92047300DD59CA /* SnoozeButton.xib */,
+				4E00173E1C92090D00DD59CA /* MathSnooze.xib */,
 				4E3567331C6998DD00050921 /* LaunchScreen.storyboard */,
 				4E35673F1C699AC400050921 /* ViewControllers */,
 				4E3567641C6C0C9500050921 /* CoreDataModelClasses */,
@@ -123,14 +192,18 @@
 				4E3567481C69A8D800050921 /* AlarmsViewController.m */,
 				4E3567401C699B0400050921 /* AddEditAlarmViewController.h */,
 				4E3567411C699B0400050921 /* AddEditAlarmViewController.m */,
-				4E35674D1C69C09A00050921 /* VoiceRecordViewController.h */,
-				4E35674E1C69C09A00050921 /* VoiceRecordViewController.m */,
+				4EEA9DEE1C7E57BB00054C00 /* RecordingsViewController.h */,
+				4EEA9DEF1C7E57BB00054C00 /* RecordingsViewController.m */,
+				4EEA9DF01C7E57BB00054C00 /* ViewController.h */,
+				4EEA9DF11C7E57BB00054C00 /* ViewController.m */,
 				4E3567501C69C0B600050921 /* ChooseRingtoneTableViewController.h */,
 				4E3567511C69C0B600050921 /* ChooseRingtoneTableViewController.m */,
-				4E3567531C69C0D800050921 /* MathSnoozeViewController.h */,
-				4E3567541C69C0D800050921 /* MathSnoozeViewController.m */,
-				4E35674A1C69C00500050921 /* SnoozeButtonViewController.h */,
-				4E35674B1C69C00500050921 /* SnoozeButtonViewController.m */,
+				4E23806B1C90DD3A00A81226 /* SnoozeRoutingViewController.h */,
+				4E23806C1C90DD3A00A81226 /* SnoozeRoutingViewController.m */,
+				4E0017381C9204DC00DD59CA /* SnoozeButton.h */,
+				4E0017391C9204DC00DD59CA /* SnoozeButton.m */,
+				4E00173B1C9208FA00DD59CA /* MathSnooze.h */,
+				4E00173C1C9208FA00DD59CA /* MathSnooze.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -138,10 +211,8 @@
 		4E3567431C69A06700050921 /* Utility Classes */ = {
 			isa = PBXGroup;
 			children = (
-				4E3567441C69A10200050921 /* DateFormatter.h */,
-				4E3567451C69A10200050921 /* DateFormatter.m */,
-				4E3567561C69CF9900050921 /* LocalNotificationConfig.h */,
-				4E3567571C69CF9900050921 /* LocalNotificationConfig.m */,
+				4EE1849A1C8107880087EE15 /* RingtoneHelper.h */,
+				4EE1849B1C8107880087EE15 /* RingtoneHelper.m */,
 			);
 			name = "Utility Classes";
 			sourceTree = "<group>";
@@ -149,7 +220,20 @@
 		4E3567591C69D24400050921 /* Ringtone Sound Files */ = {
 			isa = PBXGroup;
 			children = (
-				4E35675A1C69D33700050921 /* Alarm_tone.wav */,
+				4EC1460B1C9F9616004E76D5 /* rooster_alarm30.1.wav */,
+				4EC145EF1C9F9126004E76D5 /* guitar_drone30.wav */,
+				4EC145F01C9F9126004E76D5 /* elegant_ringtone30.wav */,
+				4EC145F11C9F9126004E76D5 /* soft_alarm30.wav */,
+				4EC145F21C9F9126004E76D5 /* submarine_alarm30.wav */,
+				4EC145F31C9F9126004E76D5 /* Dubstep_alarm30.wav */,
+				4EC145F41C9F9126004E76D5 /* russian_electro30.wav */,
+				4EC145F51C9F9126004E76D5 /* best_wake_up_tone30.wav */,
+				4EC145F71C9F9126004E76D5 /* analog_alarm30.wav */,
+				4EC145F81C9F9126004E76D5 /* nuclear_alarm30.wav */,
+				4EC145F91C9F9126004E76D5 /* xperia_z_alarm30.wav */,
+				4EC145FA1C9F9126004E76D5 /* matrix_alarm30.wav */,
+				4EC145FB1C9F9126004E76D5 /* alarm_drum30.wav */,
+				4EC145FC1C9F9126004E76D5 /* wake_up30.wav */,
 			);
 			name = "Ringtone Sound Files";
 			sourceTree = "<group>";
@@ -157,14 +241,32 @@
 		4E3567641C6C0C9500050921 /* CoreDataModelClasses */ = {
 			isa = PBXGroup;
 			children = (
-				4E35675E1C6C0C8400050921 /* Alarm+CoreDataProperties.h */,
-				4E35675F1C6C0C8400050921 /* Alarm+CoreDataProperties.m */,
-				4E3567601C6C0C8400050921 /* Alarm.h */,
-				4E3567611C6C0C8400050921 /* Alarm.m */,
+				4EDBDF351C80044D00527AFE /* Alarm+CoreDataProperties.h */,
+				4EDBDF361C80044D00527AFE /* Alarm+CoreDataProperties.m */,
+				4EDBDF371C80044D00527AFE /* Alarm.h */,
+				4EDBDF381C80044D00527AFE /* Alarm.m */,
+				4EDBDF391C80044D00527AFE /* Recording+CoreDataProperties.h */,
+				4EDBDF3A1C80044D00527AFE /* Recording+CoreDataProperties.m */,
+				4EDBDF3B1C80044D00527AFE /* Recording.h */,
+				4EDBDF3C1C80044D00527AFE /* Recording.m */,
+				4EDBDF3D1C80044D00527AFE /* Ringtone+CoreDataProperties.h */,
+				4EDBDF3E1C80044D00527AFE /* Ringtone+CoreDataProperties.m */,
+				4EDBDF3F1C80044D00527AFE /* Ringtone.h */,
+				4EDBDF401C80044D00527AFE /* Ringtone.m */,
 				4E35672E1C6998DD00050921 /* TalkAlarm.xcdatamodeld */,
 			);
 			name = CoreDataModelClasses;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		9F7FDE392627A01D72E6F121 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4EB769141CA5E09A000EAC60 /* iAd.framework */,
+				4EE4939D1C84EAA100E8E31C /* AVFoundation.framework */,
+				2D1CF44E9AEBDBD83EA7999B /* libPods-TalkAlarm.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,9 +276,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4E3567391C6998DD00050921 /* Build configuration list for PBXNativeTarget "TalkAlarm" */;
 			buildPhases = (
+				87FBB00E783CA9A81BF818ED /* Check Pods Manifest.lock */,
 				4E35671B1C6998DD00050921 /* Sources */,
 				4E35671C1C6998DD00050921 /* Frameworks */,
 				4E35671D1C6998DD00050921 /* Resources */,
+				28F7D1884D11DF55EA7E6609 /* Embed Pods Frameworks */,
+				F8D225E4B1FDD10BDE2B6919 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -224,32 +329,100 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E35675B1C69D33700050921 /* Alarm_tone.wav in Resources */,
+				4EC146001C9F9126004E76D5 /* submarine_alarm30.wav in Resources */,
+				4EC146081C9F9126004E76D5 /* matrix_alarm30.wav in Resources */,
+				4EC146071C9F9126004E76D5 /* xperia_z_alarm30.wav in Resources */,
+				4EC146091C9F9126004E76D5 /* alarm_drum30.wav in Resources */,
+				4E00173F1C92090D00DD59CA /* MathSnooze.xib in Resources */,
+				4EC145FE1C9F9126004E76D5 /* elegant_ringtone30.wav in Resources */,
 				4E3567351C6998DD00050921 /* LaunchScreen.storyboard in Resources */,
+				4EC146031C9F9126004E76D5 /* best_wake_up_tone30.wav in Resources */,
+				4EC145FD1C9F9126004E76D5 /* guitar_drone30.wav in Resources */,
+				4EC146051C9F9126004E76D5 /* analog_alarm30.wav in Resources */,
+				4EC146011C9F9126004E76D5 /* Dubstep_alarm30.wav in Resources */,
+				4E0017371C92047400DD59CA /* SnoozeButton.xib in Resources */,
+				4EC1460C1C9F9616004E76D5 /* rooster_alarm30.1.wav in Resources */,
+				4EC146061C9F9126004E76D5 /* nuclear_alarm30.wav in Resources */,
+				4EC146021C9F9126004E76D5 /* russian_electro30.wav in Resources */,
 				4E3567321C6998DD00050921 /* Assets.xcassets in Resources */,
 				4E35672D1C6998DD00050921 /* Main.storyboard in Resources */,
+				4EC1460A1C9F9126004E76D5 /* wake_up30.wav in Resources */,
+				4EC145FF1C9F9126004E76D5 /* soft_alarm30.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		28F7D1884D11DF55EA7E6609 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TalkAlarm/Pods-TalkAlarm-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		87FBB00E783CA9A81BF818ED /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F8D225E4B1FDD10BDE2B6919 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TalkAlarm/Pods-TalkAlarm-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4E35671B1C6998DD00050921 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E00173A1C9204DC00DD59CA /* SnoozeButton.m in Sources */,
+				4EEA9DF31C7E57BB00054C00 /* ViewController.m in Sources */,
+				4EDBDF421C80044D00527AFE /* Alarm.m in Sources */,
 				4E3567271C6998DD00050921 /* AppDelegate.m in Sources */,
+				4EDBDF451C80044D00527AFE /* Ringtone+CoreDataProperties.m in Sources */,
+				4EDBDF441C80044D00527AFE /* Recording.m in Sources */,
 				4E3567421C699B0400050921 /* AddEditAlarmViewController.m in Sources */,
-				4E3567551C69C0D800050921 /* MathSnoozeViewController.m in Sources */,
+				4EDBDF411C80044D00527AFE /* Alarm+CoreDataProperties.m in Sources */,
+				4EE1849C1C8107880087EE15 /* RingtoneHelper.m in Sources */,
+				4EDBDF431C80044D00527AFE /* Recording+CoreDataProperties.m in Sources */,
+				4EDBDF461C80044D00527AFE /* Ringtone.m in Sources */,
 				4E3567521C69C0B600050921 /* ChooseRingtoneTableViewController.m in Sources */,
-				4E35674F1C69C09A00050921 /* VoiceRecordViewController.m in Sources */,
-				4E3567621C6C0C8400050921 /* Alarm+CoreDataProperties.m in Sources */,
+				4EEA9DF21C7E57BB00054C00 /* RecordingsViewController.m in Sources */,
+				4E23806D1C90DD3A00A81226 /* SnoozeRoutingViewController.m in Sources */,
 				4E3567241C6998DD00050921 /* main.m in Sources */,
-				4E3567461C69A10200050921 /* DateFormatter.m in Sources */,
+				4E00173D1C9208FA00DD59CA /* MathSnooze.m in Sources */,
 				4E3567491C69A8D800050921 /* AlarmsViewController.m in Sources */,
-				4E3567631C6C0C8400050921 /* Alarm.m in Sources */,
-				4E3567581C69CF9900050921 /* LocalNotificationConfig.m in Sources */,
-				4E35674C1C69C00500050921 /* SnoozeButtonViewController.m in Sources */,
 				4E3567301C6998DD00050921 /* TalkAlarm.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,6 +531,7 @@
 		};
 		4E35673A1C6998DD00050921 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BFB22EDE2AD9805B5F1761EF /* Pods-TalkAlarm.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TalkAlarm/Info.plist;
@@ -369,6 +543,7 @@
 		};
 		4E35673B1C6998DD00050921 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C89132551EC29A8B1650CB90 /* Pods-TalkAlarm.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TalkAlarm/Info.plist;

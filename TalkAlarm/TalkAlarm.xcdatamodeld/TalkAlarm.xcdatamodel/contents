@@ -1,14 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15D21" minimumToolsVersion="Automatic">
     <entity name="Alarm" representedClassName="Alarm" syncable="YES">
-        <attribute name="audioURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="alarmID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="mathSnooze" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="numberOProblems" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="ringtoneFileName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="recording" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recording" inverseName="alarm" inverseEntity="Recording" syncable="YES"/>
+        <relationship name="ringtone" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Ringtone" inverseName="alarm" inverseEntity="Ringtone" syncable="YES"/>
+    </entity>
+    <entity name="Recording" representedClassName="Recording" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="alarm" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Alarm" inverseName="recording" inverseEntity="Alarm" syncable="YES"/>
+    </entity>
+    <entity name="Ringtone" representedClassName="Ringtone" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="alarm" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Alarm" inverseName="ringtone" inverseEntity="Alarm" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Alarm" positionX="-36" positionY="9" width="128" height="135"/>
+        <element name="Alarm" positionX="-3528" positionY="360" width="128" height="148"/>
+        <element name="Recording" positionX="-3269" positionY="351" width="128" height="88"/>
+        <element name="Ringtone" positionX="-3260" positionY="477" width="128" height="88"/>
     </elements>
 </model>

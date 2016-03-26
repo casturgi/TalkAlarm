@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RingtoneHelper.h"
+
+
+@protocol ChooseRingtoneTableViewControllerDelegate <NSObject>
+
+-(void)addRingtone:(RingtoneHelper *)ringtone;
+
+@end
 
 @interface ChooseRingtoneTableViewController : UITableViewController
+
+@property (nonatomic, assign) id <ChooseRingtoneTableViewControllerDelegate> ringtoneDelegate;
 
 @end

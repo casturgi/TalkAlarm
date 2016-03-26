@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddEditAlarmViewController : UIViewController
+@interface AddEditAlarmViewController : UIViewController <UITextFieldDelegate>
 
 @end

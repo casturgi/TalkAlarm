@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -19,31 +20,67 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AlarmClockIcon-60" translatesAutoresizingMaskIntoConstraints="NO" id="Otx-S9-Ee1">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="90" y="84" width="221" height="221"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="221" id="WJd-JF-q0I"/>
+                                    <constraint firstAttribute="height" constant="221" id="qNb-Wo-cjT"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="WJd-JF-q0I"/>
+                                        <exclude reference="qNb-Wo-cjT"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="WJd-JF-q0I"/>
+                                        <include reference="qNb-Wo-cjT"/>
+                                    </mask>
                                 </variation>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Self-Talk Alarm Clock" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w4r-8H-ldN">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Talk Alarm Clock" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w4r-8H-ldN">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="28"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="26" y="325" width="354" height="85"/>
-                                </variation>
+                                <color key="shadowColor" red="0.28667534722222221" green="0.28667534722222221" blue="0.28667534722222221" alpha="1" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="3" height="3"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.18236635371767695" green="0.64139441287878785" blue="0.51107653640480599" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="w4r-8H-ldN" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="972-0X-Jdm"/>
+                            <constraint firstItem="w4r-8H-ldN" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="trailingMargin" id="CWZ-7Y-iBK"/>
+                            <constraint firstItem="w4r-8H-ldN" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="6" id="bXF-UX-RkE"/>
+                            <constraint firstItem="w4r-8H-ldN" firstAttribute="top" secondItem="Otx-S9-Ee1" secondAttribute="bottom" constant="20" id="eY1-04-bvq"/>
+                            <constraint firstItem="Otx-S9-Ee1" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="gZW-XU-5eQ"/>
+                            <constraint firstItem="Otx-S9-Ee1" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="64" id="k2e-Pb-emW"/>
+                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="Otx-S9-Ee1"/>
                                 <exclude reference="w4r-8H-ldN"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="gZW-XU-5eQ"/>
+                                <exclude reference="k2e-Pb-emW"/>
+                                <exclude reference="972-0X-Jdm"/>
+                                <exclude reference="CWZ-7Y-iBK"/>
+                                <exclude reference="bXF-UX-RkE"/>
+                                <exclude reference="eY1-04-bvq"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="Otx-S9-Ee1"/>
                                 <include reference="w4r-8H-ldN"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="gZW-XU-5eQ"/>
+                                <include reference="k2e-Pb-emW"/>
+                                <include reference="972-0X-Jdm"/>
+                                <include reference="CWZ-7Y-iBK"/>
+                                <exclude reference="bXF-UX-RkE"/>
+                                <include reference="eY1-04-bvq"/>
                             </mask>
                         </variation>
                     </view>

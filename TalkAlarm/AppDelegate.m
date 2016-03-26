@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "SnoozeRoutingViewController.h"
 
 @interface AppDelegate ()
 
@@ -49,8 +50,19 @@
 }
 
 -(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification{
-//    MathSnoozeViewController *mathVC = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"MathSnooze"];
-//    [self.window setRootViewController:mathVC];
+    SnoozeRoutingViewController *snooze = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"MathOrNot"];
+    NSString *alarmTriggerdate = [notification.userInfo objectForKey:@"alarmDateString"];
+    snooze.triggerdAlarmDateString = alarmTriggerdate;
+    [self.window setRootViewController:snooze];
+
+    for (UILocalNotification *notificationToCancel in [[UIApplication sharedApplication] scheduledLocalNotifications]) {
+        NSString *notificationString = [NSString stringWithFormat:@"%@", notification.userInfo];
+        NSString *notificationToCancelString = [NSString stringWithFormat:@"%@", notificationToCancel.userInfo];
+        if ([notificationString isEqualToString:notificationToCancelString]) {
+            [[UIApplication sharedApplication] cancelLocalNotification:notificationToCancel];
+        }
+    }
+    NSLog(@"number of notifications left untriggered: %lu", [[[UIApplication sharedApplication]scheduledLocalNotifications] count]);
 }
 
 #pragma mark - Core Data stack
@@ -61,6 +73,7 @@
 
 - (NSURL *)applicationDocumentsDirectory {
     // The directory the application uses to store the Core Data store file. This code uses a directory named "CorySturgis.TalkAlarm" in the application's documents directory.
+    NSLog(@"CoreData.sqlite file path:%@",[[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory  inDomains:NSUserDomainMask] lastObject]);
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
