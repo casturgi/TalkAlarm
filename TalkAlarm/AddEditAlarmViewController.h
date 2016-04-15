@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Alarm.h"
 
 @interface AddEditAlarmViewController : UIViewController <UITextFieldDelegate>
+
+@property Alarm *passedAlarm;
 
 @end

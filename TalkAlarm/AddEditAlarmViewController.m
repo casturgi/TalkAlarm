@@ -54,12 +54,31 @@
     self.dateForm.timeStyle = NSDateFormatterShortStyle;
     self.dateForm.dateStyle = NSDateFormatterShortStyle;
     [self.dateForm setDateFormat:@"yyyy-MM-dd HH:mm:ss Z"];
+
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     self.adBanner = [[ADBannerView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 50, 320, 50)];
     [self.view addSubview:self.adBanner];
+
+    if (self.passedAlarm != nil) {
+        self.alarmNameTextField.text = self.passedAlarm.name;
+
+        if (self.passedAlarm.mathSnooze){
+            [self.mathSnoozeSwitch setEnabled:YES];
+        }
+
+        self.numberOProbSegCont.selectedSegmentIndex = self.passedAlarm.numberOProblems.integerValue;
+
+        [self.datePicker setDate:[self.dateForm dateFromString:self.passedAlarm.date]];
+
+        self.voiceRecordingLabel.text = self.passedAlarm.recording.name;
+        self.selectedRingtoneLabel.text = self.passedAlarm.ringtone.name;
+        self.selectedRingtone = self.passedAlarm.ringtone;
+        self.selectedRecording = self.passedAlarm.recording;
+    }
+
 }
 
 #pragma iAd delegate methods
@@ -106,34 +125,54 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 - (IBAction)onSaveButtonPressed:(id)sender {
 
     NSManagedObject *alarm = [NSEntityDescription insertNewObjectForEntityForName:@"Alarm" inManagedObjectContext:self.moc];
 
-    if (self.alarmNameTextField.text.length > 0) {
+    if (self.selectedRingtone == nil) {
 
-    } else if (self.selectedRecording != nil) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Make sure that you have selected an alarm tone to wake you up!" message:nil preferredStyle:UIAlertControllerStyleAlert];
+
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+
+        }];
+        [alertController addAction:ok];
+
+        [self presentViewController:alertController animated:YES completion:nil];
+
+    } else if ([self.datePicker.date compare:[NSDate date]] != NSOrderedDescending) {
+
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Please select a date in the future. We're still working on the time machine that'll allow us to wake you up yesterday." message:nil preferredStyle:UIAlertControllerStyleAlert];
+
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        }];
+        [alertController addAction:ok];
+
+        [self presentViewController:alertController animated:YES completion:nil];
+
+    } else {
+
+        int num = (int)[self.numberOProbSegCont selectedSegmentIndex] +1;
+        NSLog(@"%d", num);
+
+        NSString *dateString = [self.dateForm stringFromDate:self.datePicker.date];
+        NSLog(@"Picker Date: %@", self.datePicker.date);
+        NSLog(@"Picker Date String : %@", dateString);
+
+        [alarm setValue:self.selectedRingtone forKey:@"ringtone"];
+        [alarm setValue:self.selectedRecording forKey:@"recording"];
+        [alarm setValue:self.alarmNameTextField.text forKey:@"name"];
+
+        [alarm setValue:[NSNumber numberWithInt:num] forKey:@"numberOProblems"];
+        [alarm setValue:dateString forKey:@"date"];
+        [alarm setValue:[NSNumber numberWithBool:self.mathSnoozeSwitch.on]  forKey:@"mathSnooze"];
+
+        [self.moc save:nil];
+        
+        [self.navigationController popViewControllerAnimated:YES];
 
     }
-    
-    int num = (int)[self.numberOProbSegCont selectedSegmentIndex] +1;
-    NSLog(@"%d", num);
-
-    NSString *dateString = [self.dateForm stringFromDate:self.datePicker.date];
-    NSLog(@"Picker Date: %@", self.datePicker.date);
-    NSLog(@"Picker Date String : %@", dateString);
-
-    [alarm setValue:self.selectedRingtone forKey:@"ringtone"];
-    [alarm setValue:self.selectedRecording forKey:@"recording"];
-    [alarm setValue:self.alarmNameTextField.text forKey:@"name"];
-
-    [alarm setValue:[NSNumber numberWithInt:num] forKey:@"numberOProblems"];
-    [alarm setValue:dateString forKey:@"date"];
-    [alarm setValue:[NSNumber numberWithBool:self.mathSnoozeSwitch.on]  forKey:@"mathSnooze"];
-
-    [self.moc save:nil];
-
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)onCancelButtonPressed:(id)sender {

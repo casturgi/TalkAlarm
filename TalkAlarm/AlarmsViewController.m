@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "AlarmsViewController.h"
+#import "AddEditAlarmViewController.h"
 #import "Alarm.h"
 #import "Ringtone.h"
 #import "Recording.h"
@@ -174,6 +175,19 @@
     [self load];
 }
 
+#pragma mark - segue methods
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier  isEqual: @"editAlarmSegue"]){
+
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        AddEditAlarmViewController *dvc = segue.destinationViewController;
+
+        dvc.passedAlarm = [self.alarmsArray objectAtIndex:indexPath.row];
+
+    }
+}
+
 #pragma mark - schedule local notification
 
 -(void)switchChanged:(id)sender{
@@ -271,7 +285,7 @@
     }
 
 
-     NSLog(@"number of notifications: %lu", [[[UIApplication sharedApplication] scheduledLocalNotifications] count]);
+     NSLog(@"number of notifications: %u", [[[UIApplication sharedApplication] scheduledLocalNotifications] count]);
 }
 
 @end

@@ -81,6 +81,7 @@
     //
     // Customizing the audio plot that'll show the current microphone input/recording
     //
+
     self.recordingAudioPlot.backgroundColor = [self darkerColorForColor:[UIColor greenColor]];
     self.recordingAudioPlot.color           = [UIColor whiteColor];
     self.recordingAudioPlot.plotType        = EZPlotTypeRolling;
@@ -91,6 +92,7 @@
     //
     // Customizing the audio plot that'll show the playback
     //
+
     self.playingAudioPlot.color = [UIColor lightGrayColor];
     self.playingAudioPlot.plotType = EZPlotTypeRolling;
     self.playingAudioPlot.shouldFill = YES;
@@ -100,13 +102,16 @@
     self.fileURL = [self testFilePathURL];
 
     // Create an instance of the microphone and tell it to use this view controller instance as the delegate
+
     self.microphone = [EZMicrophone microphoneWithDelegate:self];
     self.player = [EZAudioPlayer audioPlayerWithDelegate:self];
     [self.recordingNameTextField setDelegate:self];
+
     //
     // Override the output to the speaker. Do this after creating the EZAudioPlayer
     // to make sure the EZAudioDevice does not reset this.
     //
+
     [session overrideOutputAudioPort:AVAudioSessionPortOverrideSpeaker error:&error];
     if (error)
     {

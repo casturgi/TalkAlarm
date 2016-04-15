@@ -16,7 +16,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-@property NSArray *recordingsArray;
+@property NSMutableArray *recordingsArray;
 @property NSManagedObjectContext *moc;
 @property (nonatomic, strong) EZAudioPlayer *player;
 @property (nonatomic, strong) EZAudioFile *audioFile;
@@ -144,7 +144,7 @@
 
 -(void)load {
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Recording"];
-    self.recordingsArray = [self.moc executeFetchRequest:request error:nil];
+    [self.recordingsArray addObjectsFromArray:[self.moc executeFetchRequest:request error:nil]];
     NSLog(@"number of recordings in array: %lu", (unsigned long)self.recordingsArray.count);
     [self.tableView reloadData];
 }

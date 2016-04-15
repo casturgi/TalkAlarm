@@ -32,13 +32,11 @@
 
     NSError *error;
     [audioSession setCategory:AVAudioSessionCategoryPlayback error:&error];
-    if (error)
-    {
+    if (error) {
         NSLog(@"Error setting up audio session category: %@", error.localizedDescription);
     }
     [audioSession setActive:YES error:&error];
-    if (error)
-    {
+    if (error) {
         NSLog(@"Error setting up audio session active: %@", error.localizedDescription);
     }
 
@@ -89,7 +87,15 @@
 
 -(void)playVoicerecording{
     NSError *error = nil;
-    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL URLWithString:self.alarmToPass.recording.url] error:&error];
+    
+    if (self.alarmToPass.recording.url.length > 0) {
+        self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL URLWithString:self.alarmToPass.recording.url] error:&error];
+    } else {
+        self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"nuclear_alarm30.wav" withExtension:@""] error:&error];
+    }
+
+
+
     self.audioPlayer.delegate = self;
     self.audioPlayer.numberOfLoops = -1;
     [self.audioPlayer play];
