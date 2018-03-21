@@ -79,12 +79,13 @@
     [playPauseButton setTintColor:[UIColor blueColor]];
 
     self.play = [UIImage imageNamed:@"play-circle-fill.png"];
-    UIImage *stop = [UIImage imageNamed:@"stopButtonIcon.png"];
+    UIImage *stop = [UIImage imageNamed:@"CircledStop"];
 
     [playPauseButton setImage:self.play forState:UIControlStateNormal];
     [playPauseButton setImage:stop forState:UIControlStateSelected];
     [playPauseButton addTarget:self action:@selector(playPauseBtnPress:) forControlEvents:UIControlEventTouchUpInside];
     [cell.textLabel setFont:[UIFont fontWithName:@"Helvetica" size:22.0]];
+    [cell.textLabel setTextColor:[UIColor whiteColor]];
     cell.accessoryView = playPauseButton;
     cell.textLabel.text = ring.name;
     return cell;

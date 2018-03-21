@@ -1,9 +1,13 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -15,82 +19,36 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AlarmClockIcon-60" translatesAutoresizingMaskIntoConstraints="NO" id="Otx-S9-Ee1">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="221" id="WJd-JF-q0I"/>
-                                    <constraint firstAttribute="height" constant="221" id="qNb-Wo-cjT"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="WJd-JF-q0I"/>
-                                        <exclude reference="qNb-Wo-cjT"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="WJd-JF-q0I"/>
-                                        <include reference="qNb-Wo-cjT"/>
-                                    </mask>
-                                </variation>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TalkAlarm_background" translatesAutoresizingMaskIntoConstraints="NO" id="C6a-yS-o3B">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Talk Alarm Clock" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w4r-8H-ldN">
-                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="28"/>
-                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" red="0.28667534722222221" green="0.28667534722222221" blue="0.28667534722222221" alpha="1" colorSpace="calibratedRGB"/>
-                                <size key="shadowOffset" width="3" height="3"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TalkAlarm_icon_transparent" translatesAutoresizingMaskIntoConstraints="NO" id="FdU-cL-Xif">
+                                <rect key="frame" x="36" y="37" width="303" height="489"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.18236635371767695" green="0.64139441287878785" blue="0.51107653640480599" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="w4r-8H-ldN" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="972-0X-Jdm"/>
-                            <constraint firstItem="w4r-8H-ldN" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="trailingMargin" id="CWZ-7Y-iBK"/>
-                            <constraint firstItem="w4r-8H-ldN" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="6" id="bXF-UX-RkE"/>
-                            <constraint firstItem="w4r-8H-ldN" firstAttribute="top" secondItem="Otx-S9-Ee1" secondAttribute="bottom" constant="20" id="eY1-04-bvq"/>
-                            <constraint firstItem="Otx-S9-Ee1" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="gZW-XU-5eQ"/>
-                            <constraint firstItem="Otx-S9-Ee1" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="64" id="k2e-Pb-emW"/>
+                            <constraint firstItem="C6a-yS-o3B" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="3sS-au-a5A"/>
+                            <constraint firstItem="FdU-cL-Xif" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="17" id="7So-Dc-51a"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="C6a-yS-o3B" secondAttribute="bottom" id="aHe-vD-cwr"/>
+                            <constraint firstAttribute="trailing" secondItem="C6a-yS-o3B" secondAttribute="trailing" id="dk8-b1-X5o"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FdU-cL-Xif" secondAttribute="trailing" constant="20" id="oON-Ak-OlK"/>
+                            <constraint firstItem="C6a-yS-o3B" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="puW-fA-pTj"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="FdU-cL-Xif" secondAttribute="bottom" constant="141" id="vLv-7w-VdX"/>
+                            <constraint firstItem="FdU-cL-Xif" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="20" id="zxx-fn-gpl"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="Otx-S9-Ee1"/>
-                                <exclude reference="w4r-8H-ldN"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="gZW-XU-5eQ"/>
-                                <exclude reference="k2e-Pb-emW"/>
-                                <exclude reference="972-0X-Jdm"/>
-                                <exclude reference="CWZ-7Y-iBK"/>
-                                <exclude reference="bXF-UX-RkE"/>
-                                <exclude reference="eY1-04-bvq"/>
-                            </mask>
-                        </variation>
-                        <variation key="widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="Otx-S9-Ee1"/>
-                                <include reference="w4r-8H-ldN"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="gZW-XU-5eQ"/>
-                                <include reference="k2e-Pb-emW"/>
-                                <include reference="972-0X-Jdm"/>
-                                <include reference="CWZ-7Y-iBK"/>
-                                <exclude reference="bXF-UX-RkE"/>
-                                <include reference="eY1-04-bvq"/>
-                            </mask>
-                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52.5" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
     <resources>
-        <image name="AlarmClockIcon-60" width="180" height="180"/>
+        <image name="TalkAlarm_background" width="512" height="900"/>
+        <image name="TalkAlarm_icon_transparent" width="512" height="900"/>
     </resources>
 </document>

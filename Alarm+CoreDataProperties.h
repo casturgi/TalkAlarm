@@ -22,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSString *alarmID;
 @property (nullable, nonatomic, retain) Recording *recording;
 @property (nullable, nonatomic, retain) Ringtone *ringtone;
+@property (nullable, nonatomic, retain) NSNumber *isEnabled;
 
 @end
 

@@ -62,7 +62,7 @@
             [[UIApplication sharedApplication] cancelLocalNotification:notificationToCancel];
         }
     }
-    NSLog(@"number of notifications left untriggered: %u", [[[UIApplication sharedApplication]scheduledLocalNotifications] count]);
+    NSLog(@"number of notifications left untriggered: %lu", [[[UIApplication sharedApplication]scheduledLocalNotifications] count]);
 }
 
 #pragma mark - Core Data stack

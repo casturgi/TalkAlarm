@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15D21" minimumToolsVersion="Automatic">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14124.1" systemVersion="17D102" minimumToolsVersion="Xcode 7.3" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
     <entity name="Alarm" representedClassName="Alarm" syncable="YES">
         <attribute name="alarmID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="mathSnooze" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isEnabled" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="mathSnooze" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="numberOProblems" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="numberOProblems" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="recording" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recording" inverseName="alarm" inverseEntity="Recording" syncable="YES"/>
         <relationship name="ringtone" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Ringtone" inverseName="alarm" inverseEntity="Ringtone" syncable="YES"/>
     </entity>
@@ -20,7 +21,7 @@
         <relationship name="alarm" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Alarm" inverseName="ringtone" inverseEntity="Alarm" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Alarm" positionX="-3528" positionY="360" width="128" height="148"/>
+        <element name="Alarm" positionX="-3528" positionY="360" width="128" height="165"/>
         <element name="Recording" positionX="-3269" positionY="351" width="128" height="88"/>
         <element name="Ringtone" positionX="-3260" positionY="477" width="128" height="88"/>
     </elements>

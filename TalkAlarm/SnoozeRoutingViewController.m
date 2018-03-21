@@ -24,7 +24,7 @@
     [super viewDidLoad];
 
 
-    AppDelegate *delegate = [[UIApplication sharedApplication]delegate];
+    AppDelegate *delegate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
     self.moc = delegate.managedObjectContext;
 
     //Initialize the audio session and handle any errors that occurr
@@ -86,14 +86,26 @@
 }
 
 -(void)playVoicerecording{
-    NSError *error = nil;
+    NSError *error;
     
+    NSLog(@"Alarm url: %@", self.alarmToPass.recording.url);
     if (self.alarmToPass.recording.url.length > 0) {
-        self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL URLWithString:self.alarmToPass.recording.url] error:&error];
+        NSString *directoryString = [NSString stringWithFormat:@"%@", NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0]];
+        NSString *urlString = [NSString stringWithFormat:@"%@%@", directoryString, self.alarmToPass.recording.url];
+        NSLog(@"directory String: %@", urlString);
+        NSLog(@"File Name String: %@", self.alarmToPass.recording.url);
+        NSURL *url = [NSURL fileURLWithPath: urlString];
+        
+        NSLog(@"URL: %@", url);
+        
+        self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
     } else {
         self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"nuclear_alarm30.wav" withExtension:@""] error:&error];
     }
-
+    
+    if (error) {
+        NSLog(@"Audio Player Error : %@", [error description]);
+    }
 
 
     self.audioPlayer.delegate = self;

@@ -33,8 +33,10 @@
     [super viewDidLoad];
 
     //Initialize an instance of the the app delegate
-    AppDelegate *delegate = [[UIApplication sharedApplication]delegate];
-    self.moc = delegate.managedObjectContext;
+//    id delegate = [[UIApplication sharedApplication]delegate];
+//    self.moc = delegate.managedObjectContext;
+    self.moc = [self managedObjectContext];
+    self.recordingsArray = [NSMutableArray new];
 
     //Initialize the audio session and handle any errors that occurr
     AVAudioSession *audioSession = [AVAudioSession sharedInstance];
@@ -58,13 +60,25 @@
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     self.adBanner = [[ADBannerView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 50, 320, 50)];
-    [self.view addSubview:self.adBanner];
+
+    [self.tableView reloadData];
     
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self load];
+}
+
+- (NSManagedObjectContext *)managedObjectContext
+{
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+        NSLog(@"successfully retrieved delegate");
+    }
+    return context;
 }
 
 #pragma iAd delegate methods
@@ -75,7 +89,6 @@
     {
         if (_adBanner.superview == nil)
         {
-            [self.view addSubview:_adBanner];
         }
 
         [UIView beginAnimations:@"animateAdBannerOn" context:NULL];
@@ -143,9 +156,16 @@
 #pragma Core Data Methods
 
 -(void)load {
+    NSError *error;
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Recording"];
-    [self.recordingsArray addObjectsFromArray:[self.moc executeFetchRequest:request error:nil]];
+    NSArray *mocRecordingsArray = [self.moc executeFetchRequest:request error:&error];
+    for (int i = 0; i < mocRecordingsArray.count; i++){
+        NSLog(@"recording URL: %@", [mocRecordingsArray objectAtIndex:i]);
+    }
+    [self.recordingsArray removeAllObjects];
+    [self.recordingsArray addObjectsFromArray:mocRecordingsArray];
     NSLog(@"number of recordings in array: %lu", (unsigned long)self.recordingsArray.count);
+    NSLog(@"Number of recordings in MOC: %lu", (unsigned long)mocRecordingsArray.count);
     [self.tableView reloadData];
 }
 
@@ -164,13 +184,14 @@
     playPauseButton.tag = 5;
 
     UIImage *play = [UIImage imageNamed:@"play-circle-fill.png"];
-    UIImage *stop = [UIImage imageNamed:@"stopButtonIcon.png"];
+    UIImage *stop = [UIImage imageNamed:@"CircledStop"];
 
     [playPauseButton setImage:play forState:UIControlStateNormal];
     [playPauseButton setImage:stop forState:UIControlStateSelected];
     [playPauseButton addTarget:self action:@selector(playPauseBtnPress:) forControlEvents:UIControlEventTouchUpInside];
 
-    [cell.textLabel setFont:[UIFont fontWithName:@"Helvetica" size:22.0]];
+    [cell.textLabel setFont:[UIFont fontWithName:@"Helvetica" size:40.0]];
+    [cell.textLabel setTextColor:[UIColor whiteColor]];
     cell.accessoryView = playPauseButton;
     cell.textLabel.text = rec.name;
     return cell;
@@ -203,8 +224,12 @@
 
     NSError *error;
 
+    
+    NSString *urlString = [NSString stringWithFormat:@"file://%@%@", NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0], rec.url];
+    NSLog(@"REC.URL: %@", urlString);
+
     //initalize and set the audio player to play the file when the sender is tapped
-    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL URLWithString:rec.url] error:&error];
+    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL URLWithString: urlString] error:&error];
     self.audioPlayer.delegate = self;
     if (error){
         NSLog(@"could not play audio file. %@", error.localizedDescription);

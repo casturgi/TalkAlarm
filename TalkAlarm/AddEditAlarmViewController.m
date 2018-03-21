@@ -20,7 +20,6 @@
 @interface AddEditAlarmViewController () <RecordingsViewControllerDelegate, ChooseRingtoneTableViewControllerDelegate, ADBannerViewDelegate>
 
 @property NSManagedObjectContext *moc;
-//@property DateFormatter *dateFormatter;
 @property NSDateFormatter *dateForm;
 
 @property (weak, nonatomic) IBOutlet UITextField *alarmNameTextField;
@@ -44,23 +43,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    AppDelegate *delegate = [[UIApplication sharedApplication]delegate];
+    AppDelegate *delegate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
     self.moc = delegate.managedObjectContext;
 
     [self.alarmNameTextField setDelegate:self];
 
     self.dateForm = [NSDateFormatter new];
-    self.dateForm.timeZone = [NSTimeZone defaultTimeZone];
-    self.dateForm.timeStyle = NSDateFormatterShortStyle;
-    self.dateForm.dateStyle = NSDateFormatterShortStyle;
-    [self.dateForm setDateFormat:@"yyyy-MM-dd HH:mm:ss Z"];
-
+    self.dateForm.dateFormat = @"yyyy-MM-dd HH:mm:ss Z";
+    
+    [self.datePicker setValue:[UIColor whiteColor] forKey:@"textColor"];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     self.adBanner = [[ADBannerView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 50, 320, 50)];
-    [self.view addSubview:self.adBanner];
 
     if (self.passedAlarm != nil) {
         self.alarmNameTextField.text = self.passedAlarm.name;
@@ -69,10 +65,15 @@
             [self.mathSnoozeSwitch setEnabled:YES];
         }
 
-        self.numberOProbSegCont.selectedSegmentIndex = self.passedAlarm.numberOProblems.integerValue;
+        [self.numberOProbSegCont setSelectedSegmentIndex:self.passedAlarm.numberOProblems.integerValue -1];
 
         [self.datePicker setDate:[self.dateForm dateFromString:self.passedAlarm.date]];
-
+        
+        if(self.passedAlarm.mathSnooze == 0){
+            [self.mathSnoozeSwitch setOn: FALSE];
+        } else {
+            [self.mathSnoozeSwitch setOn: TRUE];
+        }
         self.voiceRecordingLabel.text = self.passedAlarm.recording.name;
         self.selectedRingtoneLabel.text = self.passedAlarm.ringtone.name;
         self.selectedRingtone = self.passedAlarm.ringtone;
@@ -90,7 +91,7 @@
         // If banner isn't part of view hierarchy, add it
         if (_adBanner.superview == nil)
         {
-            [self.view addSubview:_adBanner];
+            
         }
 
         [UIView beginAnimations:@"animateAdBannerOn" context:NULL];
@@ -128,8 +129,7 @@
 
 - (IBAction)onSaveButtonPressed:(id)sender {
 
-    NSManagedObject *alarm = [NSEntityDescription insertNewObjectForEntityForName:@"Alarm" inManagedObjectContext:self.moc];
-
+    NSLog(@"Date picker date: %@", self.datePicker.date);
     if (self.selectedRingtone == nil) {
 
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Make sure that you have selected an alarm tone to wake you up!" message:nil preferredStyle:UIAlertControllerStyleAlert];
@@ -141,29 +141,51 @@
 
         [self presentViewController:alertController animated:YES completion:nil];
 
-    } else if ([self.datePicker.date compare:[NSDate date]] != NSOrderedDescending) {
-
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Please select a date in the future. We're still working on the time machine that'll allow us to wake you up yesterday." message:nil preferredStyle:UIAlertControllerStyleAlert];
-
-        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        }];
-        [alertController addAction:ok];
-
-        [self presentViewController:alertController animated:YES completion:nil];
-
     } else {
+        
+        NSString *dateString = [NSString new];
+        NSString *alarmName = [NSString new];
+        
+        if ([self.datePicker.date compare:[NSDate date]] != NSOrderedDescending) {
+            
+            NSDateComponents *dayComponent = [NSDateComponents new];
+            dayComponent.day = 1;
+            
+            NSCalendar *cal = [NSCalendar currentCalendar];
+            NSDate *alarmDate = [cal dateByAddingComponents:dayComponent toDate:self.datePicker.date options:0];
+            dateString = [self.dateForm stringFromDate:alarmDate];
+            NSLog(@"ALARMDATE: %@", dateString);
+            alarmName = @"Tomorrow";
+            
+        } else {
+            
+            dateString = [self.dateForm stringFromDate:self.datePicker.date];
+            NSLog(@"ALARMDATE: %@", dateString);
+            alarmName = @"Today";
+            
+        }
 
         int num = (int)[self.numberOProbSegCont selectedSegmentIndex] +1;
         NSLog(@"%d", num);
 
-        NSString *dateString = [self.dateForm stringFromDate:self.datePicker.date];
         NSLog(@"Picker Date: %@", self.datePicker.date);
         NSLog(@"Picker Date String : %@", dateString);
-
+//        remove old Alarm from MOC
+        if (self.passedAlarm != nil) {
+            NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Alarm"];
+            NSArray *alarmsArray = [self.moc executeFetchRequest:request error:nil];
+            for (Alarm *alarm in alarmsArray) {
+                if ([alarm.date isEqualToString:self.passedAlarm.date]){
+                    [self.moc deleteObject:alarm];
+                    
+                }
+            }
+        }
+        NSManagedObject *alarm = [NSEntityDescription insertNewObjectForEntityForName:@"Alarm" inManagedObjectContext:self.moc];
         [alarm setValue:self.selectedRingtone forKey:@"ringtone"];
         [alarm setValue:self.selectedRecording forKey:@"recording"];
-        [alarm setValue:self.alarmNameTextField.text forKey:@"name"];
-
+        [alarm setValue:alarmName forKey:@"name"];
+        [alarm setValue:@0 forKey:@"isEnabled"];
         [alarm setValue:[NSNumber numberWithInt:num] forKey:@"numberOProblems"];
         [alarm setValue:dateString forKey:@"date"];
         [alarm setValue:[NSNumber numberWithBool:self.mathSnoozeSwitch.on]  forKey:@"mathSnooze"];

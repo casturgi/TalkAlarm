@@ -13,6 +13,7 @@
 @implementation SnoozeButton
 
 -(void)awakeFromNib{
+    [super awakeFromNib];
     self.count = 5;
     [self.snoozeButton setEnabled:NO];
     self.countDownTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(changeButtonLabel) userInfo:nil repeats:YES];

@@ -75,9 +75,11 @@
     //
     // Get an instance of the app delegate and assign the managed object contexts delegate
     //
-    AppDelegate *delegate = [[UIApplication sharedApplication]delegate];
-    self.moc = delegate.managedObjectContext;
+//    id delegate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
+//    self.moc = delegate.managedObjectContext;
+    self.moc = [self managedObjectContext];
 
+    
     //
     // Customizing the audio plot that'll show the current microphone input/recording
     //
@@ -134,6 +136,16 @@
     NSLog(@"File written to application sandbox's documents directory: %@", self.fileURL);
 
 
+}
+
+- (NSManagedObjectContext *)managedObjectContext
+{
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
 }
 
 - (UIColor *)darkerColorForColor:(UIColor *)c
@@ -417,19 +429,31 @@ withNumberOfChannels:(UInt32)numberOfChannels
         [alertController addAction:ok];
 
         [self presentViewController:alertController animated:YES completion:nil];
+
     } else {
 
-    NSManagedObject *recording = [NSEntityDescription insertNewObjectForEntityForName:@"Recording" inManagedObjectContext:self.moc];
+        NSManagedObject *recording = [NSEntityDescription insertNewObjectForEntityForName:@"Recording" inManagedObjectContext:self.moc];
 
-        [recording setValue:self.recordingNameTextField.text forKey:@"name"];
-        [recording setValue:[NSString stringWithFormat: @"%@", self.fileURL] forKey:@"url"];
-
-
+        NSString *name = self.recordingNameTextField.text;
+        
+        NSString *directoryString = [NSString stringWithFormat:@"file://%@", NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0]];
+        NSString *fileURLString = [self.fileURL absoluteString];
+        NSString *fileName = [fileURLString stringByReplacingOccurrencesOfString:directoryString withString:@""];
+        
+        NSLog(@"DRECTORY: %@", directoryString);
+        NSLog(@"FILENAME: %@", fileName);
+        
+        [recording setValue:name forKey:@"name"];
+        [recording setValue:fileName forKey:@"url"];
+        
+        
     NSError *error = nil;
     [self.moc save:&error];
     if ([self.moc save:&error] == NO) {
         NSAssert(NO, @"Save should not fail\n%@", [error localizedDescription]);
         abort();
+    } else {
+        NSLog(@"Recording saved successfully");
     }
 
 //        [self dismissViewControllerAnimated:YES completion:nil];

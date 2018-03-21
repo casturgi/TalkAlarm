@@ -20,5 +20,6 @@
 @dynamic alarmID;
 @dynamic recording;
 @dynamic ringtone;
+@dynamic isEnabled;
 
 @end
